@@ -1,7 +1,8 @@
 package strategy;
 
-import dto.Board;
-import dto.Cell;
+import commons.ChessUtils;
+import model.Board;
+import model.Cell;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +12,7 @@ public class LeftHorizontalMoveStrategy implements MoveStrategy{
 
     @Override
     public List<Cell> getAllPossibleMoves(Cell cell) {
-        Board board = getBoard();
+        Board board = ChessUtils.getBoard();
         Cell[] row = board.getMatrix()[cell.getRow()];
         return new ArrayList<>(Arrays.asList(row).subList(0, cell.getCol()));
     }
